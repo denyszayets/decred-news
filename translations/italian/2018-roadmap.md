@@ -28,10 +28,10 @@ Negli aggiornamenti precedenti della roadmap, abbiamo tentato di gestire le aspe
 ## Supporto del portafoglio SPV
 Molti progetti crypto non hanno puntato sulla creazione di un vero e proprio wallet SPV e al contrario hanno optato invece per wallet che fanno uso di un servizio centralizzato per ricevere le notifiche di pagamento. C’è certamente un livello di praticità che viene fornito con certo tipo di servizio, ma ci sono spesso conseguenze sottili, ad es. caricando un pubkey (public key) esteso al servizio, questo può conoscere tutti i tuoi indirizzi.
 
-Con Decred, abbiamo optato per aggiungere il supporto SPV a dcrwallet integrando i filtri compatti: questo è un livello superiore di SPV che mantiene la privacy dell’utente riducendo al minimo la quantità di dati da scaricare prima che di poter utilizzare il wallet. L’idea dei filtri compatti proviene dalle discussioni nate sulla [mailing list dei bitcoin-dev], inizialmente proposti da Alex Akselrod e Olaoluwa Osuntokun di Lightning Labs. A partire dalla fine di febbraio 2018, una copia completa della Decred chain utilizza 2,1 GB di spazio di archiviazione, rispetto ai 66 MB di spazio di archiviazione per gli header e i filtri compatti richiesti dal wallet SPV. Gli utenti interessati a seguire più da vicino gli sviluppi sull’SPV possono farlo a [questo link].
+Con Decred, abbiamo optato per aggiungere il supporto SPV a dcrwallet integrando i filtri compatti: questo è un livello superiore di SPV che mantiene la privacy dell’utente riducendo al minimo la quantità di dati da scaricare prima che di poter utilizzare il wallet. L’idea dei filtri compatti proviene dalle discussioni nate sulla [mailing list dei bitcoin-dev](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2017-June/014474.html), inizialmente proposti da Alex Akselrod e Olaoluwa Osuntokun di Lightning Labs. A partire dalla fine di febbraio 2018, una copia completa della Decred chain utilizza 2,1 GB di spazio di archiviazione, rispetto ai 66 MB di spazio di archiviazione per gli header e i filtri compatti richiesti dal wallet SPV. Gli utenti interessati a seguire più da vicino gli sviluppi sull’SPV possono farlo a [questo link](https://github.com/decred/dcrwallet/issues/1000).
 
 ## Votazione Politeia
-Il cuore del nostro sistema di proposte, [Politeia], è stato recentemente completato e stiamo aggiungendo il supporto per il voto. Politeia può essere descritta in breve come una cartella di registro su GitHub impressa nella Decred chain che utilizza l’attribuzione crittografica per creare un senso di responsabilità di tutti i partecipanti — utenti e amministratori allo stesso modo. Avere responsabilità superiori significa che le proposte, i commenti, i voti e le azioni amministrative in Politeia non risentiranno della censura che è diventata sempre più comune tra molte importanti società tech e i loro website.
+Il cuore del nostro sistema di proposte, [Politeia](https://github.com/decred/politeia/), è stato recentemente completato e stiamo aggiungendo il supporto per il voto. Politeia può essere descritta in breve come una cartella di registro su GitHub impressa nella Decred chain che utilizza l’attribuzione crittografica per creare un senso di responsabilità di tutti i partecipanti — utenti e amministratori allo stesso modo. Avere responsabilità superiori significa che le proposte, i commenti, i voti e le azioni amministrative in Politeia non risentiranno della censura che è diventata sempre più comune tra molte importanti società tech e i loro website.
 
 Una volta completato il supporto al voto, Politeia verrà testato su testnet e quindi distribuito su mainnet. Successivamente, Politeia sarà utilizzata per discutere e finanziare nuove proposte, stabilire budget e effettuare pagamenti in corso con l’approvazione degli stakeholder. E’ importante far notare che le votazioni su Politeia saranno possibili solo per gli stakeholder i cui ticket sono ‘attivi’ nel ticket pool nel momento in cui viene richiesto un voto su una determinata proposta.
 
@@ -56,9 +56,9 @@ Per fare in modo che Decred funzioni senza intoppi, è necessario eseguire costa
 
 Poiché l’ottimizzazione del software spesso richiede molti dettagli, ecco un elenco delle principali ottimizzazioni pianificate:
 
-* [nuovo algoritmo della firma] — La modifica dell’algoritmo delle firme SigHashAllValue corregge il problema di scalabilità quadratica di Decred ereditato da Bitcoin, velocizzando incredibilmente il supporto di verifica delle firme.
+* [nuovo algoritmo della firma](https://github.com/decred/dcrd/issues/950) — La modifica dell’algoritmo delle firme SigHashAllValue corregge il problema di scalabilità quadratica di Decred ereditato da Bitcoin, velocizzando incredibilmente il supporto di verifica delle firme.
 * multi-peer sync support — Attualmente, dcrd può sincronizzare la sua chain solo da un singolo peer alla volta, il che porta a tempi di sincronizzazione iniziali lunghi, specialmente quando si connette a un peer lento, mentre la sincronizzazione da più peer contemporaneamente eviterebbe l’impasse.
-* [header commitments] — I block header di Decred possono essere modificati per supportare una varietà di impegni, ad esempio per i filtri compatti, gli output di transazione non spesi e l’inserimento dei ticket, che consente ai client SPV di operare in sicurezza, pulizia sicura della blockchain e tracciamento dello stato del ticket con un SPV client.
+* [header commitments](https://github.com/decred/dcrd/issues/971) — I block header di Decred possono essere modificati per supportare una varietà di impegni, ad esempio per i filtri compatti, gli output di transazione non spesi e l’inserimento dei ticket, che consente ai client SPV di operare in sicurezza, pulizia sicura della blockchain e tracciamento dello stato del ticket con un SPV client.
 * Firme di schnorr — Le firme di più chiavi private possono essere aggregate in un’unica firma, garantendo considerevoli risparmi sulla rete e sull’archiviazione per i nodi Decred.
 
 ## Integrazioni con i file
@@ -69,7 +69,7 @@ Decrediton, il nostro wallet GUIcross-platform, integrerà il supporto per molti
 I progressi su queste integrazioni possono procedere in parallelo e dovrebbero essere molto più di routine rispetto al lavoro richiesto per completare le componenti di backend.
 
 ## Exchange decentralizzato
-Abbiamo rilasciato i tools [atomicswap] nel settembre 2017 come componente autonomo di un progetto più ampio, un Exchange decentralizzato. Molti progetti hanno fatto della decentralizzazione del processo di scambio sull exchange la loro e hanno una varietà di modelli di profitto diversi.
+Abbiamo rilasciato i tools [atomicswap](https://github.com/decred/atomicswap/) nel settembre 2017 come componente autonomo di un progetto più ampio, un Exchange decentralizzato. Molti progetti hanno fatto della decentralizzazione del processo di scambio sull exchange la loro e hanno una varietà di modelli di profitto diversi.
 
 La nostra proposta per un Exchange decentralizzato sarà basata sui principi prima dei profitti ed sarà concepita come uno sforzo che speriamo coinvolgerà altri progetti crypto oltre a Decred. La proposta iniziale per questo sistema sarà il prossimo post di blog Decred e diventerà una proposta formale all’interno di Politeia una volta che sarà attiva su mainnet.
 
@@ -83,8 +83,7 @@ Mentre non possiamo sapere con precisione cosa succederà quando questi fondi sa
 
 Siamo sempre alla ricerca di nuovi collaboratori, quindi se questo progetto ti affascina o hai in mente qualcosa che potrebbe essere migliorato, ti incoraggiamo a metterti in contatto, lavorare con noi, creare nuovi contenuti ed essere pagati in decred, ovviamente.
 
-Ci puoi trovare sul nostro [Rocket.Chat], [Matrix], [Discord], [Slack], [IRC], [Telegram], [Reddit] o su [Forum]. Nota bene: gli inviti Slack devono essere richiesti manualmente tramite una delle altre reti di chat prima che possa essere concesso l’accesso.
+Ci puoi trovare sul nostro [Rocket.Chat](https://rocketchat.decred.org/home), [Matrix](https://riot.im/app/#/room/), [Discord](https://discordapp.com/invite/GJ2GXfz), [Slack](https://decred.slack.com/messages/DB0MNLGTD/team/UB1Q74U7R/), [IRC](https://webchat.freenode.net/?channels=decred&uio=d4), [Telegram](https://t.me/decred), [Reddit](https://www.reddit.com/r/decred/) o su [Forum](https://forum.decred.org/). Nota bene: gli inviti Slack devono essere richiesti manualmente tramite una delle altre reti di chat prima che possa essere concesso l’accesso.
 
-*****
-[Articolo Originale] pubblicato da Jake Yocom-Piatt [@behindtext]
-[www.decred.org] | [Decred] | [@decredproject]
+***** [Articolo Originale](https://blog.decred.org/2018/02/28/2018-Decred-Roadmap/) pubblicato da Jake Yocom-Piatt [@behindtext](https://twitter.com/behindtext)
+[www.decred.org](https://www.decred.org) | [Decred](https://medium.com/@decred) | [@decredproject](https://twitter.com/decredproject)
