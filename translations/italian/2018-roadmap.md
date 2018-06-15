@@ -46,7 +46,7 @@ A causa della concorrenza nel sotto-dominio della privacy, siamo stati prudenti 
 ## Controllo decentralizzato dei fondi
 Il passaggio finale per la definitiva decentralizzazione della organizzazione decentralizzata sarà il controllo decentralizzato dei suoi fondi. Prima che il controllo formale sia decentralizzato, le erogazioni di fondi saranno soggette a un processo decisionale “soft” tramite Politeia. Piuttosto che adottare l’approccio utilizzato in Ethereum, che comprende centinaia o migliaia di righe di codice Solidity, creeremo uno smart contract che consenta agli stakeholder di Decred di votare sulle erogazioni di denaro sulla chain e rilasciare di conseguenza i fondi.
 
-## Entità Autonome Decentrate
+## Entità Autonoma Decentralizzata
 Il metodo per decentralizzare il controllo dei fondi della organizzazione decentralizzata sarà generalizzato per supportare entità create dagli utenti dette anche Entità Autonome Decentralizzate o Decentralized Autonomous Entities in inlgese (“DAE”). Poiché il principale punto distintivo di un’entità aziendale rispetto ad un individuo è la proprietà ed il controllo dei fondi e degli asset, utilizzeremo il controllo decentrato dei fondi come base per le DAE all’interno di Decred.
 
 Ci concentreremo meno sulla componente speculativa della tokenizzazione e più sulla meccanica fondamentale per farlo funzionare, poiché la tokenizzazione crea diversi problemi di scalabilità, che hanno portato alla congestione chain di Ethereum. In breve, una DAE sarà composta da un semplice smart contract on-chain che delega il controllo dei fondi nel contratto a un gruppo di persone.
